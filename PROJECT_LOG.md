@@ -3,7 +3,9 @@
 ## Current Public URLs
 
 - Production site: <https://hiv-education-interactive.pages.dev>
-- Latest deployment preview: <https://59d934a6.hiv-education-interactive.pages.dev>
+- Recent deployment preview from the Firebase/GitHub sync step: <https://633f79c4.hiv-education-interactive.pages.dev>
+- Documentation deployment preview: <https://692ad183.hiv-education-interactive.pages.dev>
+- Note: Cloudflare Pages creates a new preview URL for each deployment. The production URL remains stable.
 - GitHub repository: <https://github.com/profmonicako-cmyk/hiv-education-interactive>
 
 ## Source Material
