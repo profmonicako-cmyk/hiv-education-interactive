@@ -5,7 +5,7 @@ This folder is the deploy-ready static website package.
 ## Live Site
 
 - Production: <https://hiv-education-interactive.pages.dev>
-- Latest deployment preview: <https://633f79c4.hiv-education-interactive.pages.dev>
+- Latest deployment preview: <https://59d934a6.hiv-education-interactive.pages.dev>
 - GitHub repository: <https://github.com/profmonicako-cmyk/hiv-education-interactive>
 
 ## Project Record
