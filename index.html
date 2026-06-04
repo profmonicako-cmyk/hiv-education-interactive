@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TANA 愛滋病護理學會 v.2021 手繪風互動式 HIV 與性健康教育網頁">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23e84a3a'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Arial' font-size='24' font-weight='700' fill='%23fbf6ee'%3EH%3C/text%3E%3C/svg%3E">
+  <title>活在愛裡的人都不孤單 | HIV 衛教手繪筆記</title>
+  <style>
+    :root {
+      --hd-paper: #fbf6ee;
+      --hd-paper-grid: rgba(45, 42, 38, .065);
+      --hd-ink: #2d2a26;
+      --hd-pencil: #5a564d;
+      --hd-red: #e84a3a;
+      --hd-yellow: #f7c84b;
+      --hd-blue: #4a86e0;
+      --hd-green: #4fb585;
+      --hd-pink: #e8779e;
+      --hd-cream: #fff9df;
+      --hd-highlighter: rgba(247, 200, 75, .52);
+      --radius-rough: 24px 18px 22px 16px / 16px 22px 18px 24px;
+      --font-display: "Comic Sans MS", "Marker Felt", "PingFang TC", "Noto Sans TC", sans-serif;
+      --font-body: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif;
+      --shadow-rough: 5px 6px 0 rgba(45, 42, 38, .95);
+      --soft-shadow: 0 8px 18px rgba(45, 42, 38, .13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--hd-ink);
+      background-color: var(--hd-paper);
+      background-image:
+        linear-gradient(var(--hd-paper-grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--hd-paper-grid) 1px, transparent 1px);
+      background-size: 20px 20px;
+      font-family: var(--font-body);
+      line-height: 1.7;
+    }
+
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      width: 300px;
+      height: 230px;
+      top: 22%;
+      right: 4%;
+      background: radial-gradient(ellipse, rgba(120, 80, 50, .1) 0%, transparent 70%);
+      transform: rotate(-12deg);
+    }
+
+    body::after {
+      width: 220px;
+      height: 220px;
+      left: -80px;
+      bottom: 8%;
+      background: radial-gradient(circle, rgba(232, 74, 58, .09) 0%, transparent 65%);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -90px;
+      z-index: 20;
+      padding: 10px 14px;
+      background: var(--hd-ink);
+      color: var(--hd-paper);
+    }
+
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      align-items: center;
+      padding: 34px 0 44px;
+    }
+
+    .hero-inner {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 430px);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .scribble {
+      color: var(--hd-red);
+      font-family: var(--font-display);
+      font-weight: 800;
+      transform: rotate(-1.2deg);
+      display: inline-block;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 18px;
+      padding: 6px 12px;
+      border: 2px solid var(--hd-ink);
+      border-radius: 999px 760px 900px 720px / 720px 900px 760px 999px;
+      background: rgba(255, 255, 255, .46);
+      font-family: var(--font-display);
+      font-weight: 700;
+      transform: rotate(-1deg);
+    }
+
+    h1 {
+      max-width: 780px;
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: 1.05;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4.5vw, 52px);
+      line-height: 1.13;
+      letter-spacing: 0;
+      text-wrap: balance;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      line-height: 1.3;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .hero-copy,
+    .lead {
+      color: var(--hd-pencil);
+      font-size: 18px;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin-top: 20px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .btn-hand,
+    .btn-paper {
+      min-height: 46px;
+      border: 0;
+      padding: 13px 20px;
+      border-radius: var(--radius-rough);
+      font-family: var(--font-display);
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .btn-hand {
+      background: var(--hd-red);
+      color: var(--hd-paper);
+      box-shadow: var(--shadow-rough);
+      transform: rotate(-1deg);
+    }
+
+    .btn-paper {
+      border: 2px solid var(--hd-ink);
+      background: var(--hd-cream);
+      color: var(--hd-ink);
+      box-shadow: 3px 4px 0 rgba(45, 42, 38, .9);
+      transform: rotate(1deg);
+    }
+
+    .btn-hand:hover,
+    .btn-paper:hover {
+      transform: rotate(-2deg) translateY(-2px);
+      box-shadow: 7px 8px 0 rgba(45, 42, 38, .95);
+    }
+
+    .hand-arrow {
+      width: 86px;
+      height: 34px;
+    }
+
+    .hero-board {
+      position: relative;
+      min-height: 500px;
+    }
+
+    .poster-stack {
+      position: absolute;
+      inset: 18px 0 auto;
+      padding: 12px;
+      border: 3px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      background: #fffdfa;
+      box-shadow: var(--shadow-rough);
+      transform: rotate(1.4deg);
+    }
+
+    .poster-stack::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 44%;
+      width: 82px;
+      height: 24px;
+      background: rgba(255, 255, 255, .58);
+      border: 1px solid rgba(45, 42, 38, .22);
+      transform: rotate(-5deg);
+    }
+
+    .poster-stack img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px 12px 17px 13px / 13px 18px 12px 17px;
+    }
+
+    .sticky-date {
+      position: absolute;
+      right: -4px;
+      bottom: 16px;
+      width: min(260px, 68%);
+      padding: 18px 20px;
+      background: var(--hd-yellow);
+      border-radius: var(--radius-rough);
+      box-shadow: var(--soft-shadow);
+      transform: rotate(-4deg);
+      font-family: var(--font-display);
+      font-weight: 800;
+    }
+
+    .sticky-date::before {
+      content: "";
+      position: absolute;
+      top: -9px;
+      left: 50%;
+      width: 70px;
+      height: 19px;
+      background: rgba(255, 255, 255, .48);
+      transform: translateX(-50%) rotate(5deg);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(251, 246, 238, .9);
+      border-top: 2px solid var(--hd-ink);
+      border-bottom: 2px solid var(--hd-ink);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-wrap {
+      width: min(1180px, calc(100% - 24px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .brand {
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 800;
+      transform: rotate(-1deg);
+    }
+
+    .toc {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      padding: 10px 0;
+    }
+
+    .toc a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--hd-pencil);
+    }
+
+    .toc a:hover {
+      background: var(--hd-highlighter);
+      color: var(--hd-ink);
+    }
+
+    .main {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 38px 0 76px;
+    }
+
+    .notice {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding: 18px 20px;
+      border: 3px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      background: #fff9df;
+      box-shadow: 4px 5px 0 rgba(45, 42, 38, .9);
+      transform: rotate(-.45deg);
+    }
+
+    .notice strong,
+    .highlight {
+      background: linear-gradient(180deg, transparent 52%, var(--hd-highlighter) 52%);
+      padding: 0 4px;
+    }
+
+    .doodle-star {
+      font-family: var(--font-display);
+      color: var(--hd-red);
+      font-size: 32px;
+      transform: rotate(12deg);
+    }
+
+    .tabs {
+      display: grid;
+      gap: 24px;
+    }
+
+    .tab-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .tab-button {
+      min-height: 58px;
+      border: 3px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      background: var(--hd-cream);
+      box-shadow: 3px 4px 0 rgba(45, 42, 38, .9);
+      color: var(--hd-ink);
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 800;
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+
+    .tab-button:nth-child(2) {
+      transform: rotate(1deg);
+    }
+
+    .tab-button:nth-child(3) {
+      transform: rotate(-1.1deg);
+    }
+
+    .tab-button:nth-child(4) {
+      transform: rotate(.7deg);
+    }
+
+    .tab-button[aria-selected="true"] {
+      background: var(--hd-red);
+      color: var(--hd-paper);
+      box-shadow: 5px 6px 0 rgba(45, 42, 38, .95);
+      transform: translateY(-3px) rotate(-1deg);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    .section-band {
+      padding: 28px 0 10px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(280px, .5fr);
+      gap: 26px;
+      align-items: start;
+      margin-bottom: 24px;
+    }
+
+    .summary-panel,
+    .info-card,
+    .risk,
+    details,
+    .assistant,
+    .visual-card {
+      border: 3px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      background: #fffdfa;
+      box-shadow: 4px 5px 0 rgba(45, 42, 38, .9);
+    }
+
+    .summary-panel {
+      padding: 18px 20px;
+      transform: rotate(1.2deg);
+    }
+
+    .summary-panel strong {
+      font-family: var(--font-display);
+      font-size: 22px;
+    }
+
+    .content-row {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(300px, .65fr);
+      gap: 22px;
+      align-items: start;
+      margin: 20px 0;
+    }
+
+    .content-row.flip {
+      grid-template-columns: minmax(300px, .65fr) minmax(0, .9fr);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .info-card {
+      padding: 18px 19px 20px;
+      min-height: 100%;
+      position: relative;
+    }
+
+    .info-card:nth-child(1) {
+      transform: rotate(-.8deg);
+    }
+
+    .info-card:nth-child(2) {
+      transform: rotate(1deg);
+    }
+
+    .info-card:nth-child(3) {
+      transform: rotate(-1.2deg);
+    }
+
+    .note-yellow {
+      background: var(--hd-yellow);
+    }
+
+    .note-pink {
+      background: #f4a4bd;
+    }
+
+    .note-green {
+      background: #8bd2b3;
+    }
+
+    .note-blue {
+      background: #8db7f0;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 3px 10px;
+      margin-bottom: 12px;
+      border: 2px solid var(--hd-ink);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .46);
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    ul,
+    ol {
+      margin: 8px 0 0;
+      padding-left: 1.35rem;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    details {
+      margin: 12px 0;
+      overflow: hidden;
+      background: #fffdfa;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 15px 18px;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 19px;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      display: inline-grid;
+      place-items: center;
+      border: 2px solid var(--hd-ink);
+      border-radius: 50% 45% 55% 47%;
+      color: var(--hd-red);
+      background: var(--hd-yellow);
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    .detail-body {
+      padding: 0 18px 18px;
+      color: var(--hd-pencil);
+    }
+
+    .callout {
+      margin: 18px 0;
+      padding: 17px 20px;
+      border: 3px solid var(--hd-red);
+      border-radius: var(--radius-rough);
+      background: #ffe8e1;
+      box-shadow: 3px 4px 0 rgba(45, 42, 38, .9);
+      transform: rotate(.8deg);
+    }
+
+    .crayon-circle {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+    }
+
+    .crayon-circle::after {
+      content: "";
+      position: absolute;
+      inset: -7px -13px;
+      border: 3px solid var(--hd-red);
+      border-radius: 52% 60% 44% 55% / 50% 45% 55% 50%;
+      transform: rotate(-3deg);
+      opacity: .78;
+      z-index: -1;
+    }
+
+    .visual-card {
+      padding: 12px;
+      background: #fffdfa;
+      transform: rotate(1deg);
+      position: relative;
+    }
+
+    .visual-card.alt {
+      transform: rotate(-1deg);
+    }
+
+    .visual-card::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 42%;
+      width: 72px;
+      height: 18px;
+      background: rgba(255, 255, 255, .6);
+      border: 1px solid rgba(45, 42, 38, .2);
+      transform: rotate(-4deg);
+      z-index: 2;
+    }
+
+    .visual-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 16px 12px 18px 13px / 13px 18px 12px 16px;
+      background: #fff;
+    }
+
+    .visual-card figcaption {
+      padding: 10px 4px 2px;
+      color: var(--hd-pencil);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .risk-table {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin: 18px 0;
+    }
+
+    .risk {
+      padding: 15px;
+      background: #fff9df;
+      transform: rotate(-.6deg);
+    }
+
+    .risk:nth-child(2) {
+      background: #e8f5ff;
+      transform: rotate(.8deg);
+    }
+
+    .risk:nth-child(3) {
+      background: #e8fff3;
+      transform: rotate(-.9deg);
+    }
+
+    .risk:nth-child(4) {
+      background: #ffe7ef;
+      transform: rotate(1deg);
+    }
+
+    .risk b {
+      display: block;
+      margin-bottom: 8px;
+      font-family: var(--font-display);
+      font-size: 19px;
+    }
+
+    .assistant {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: minmax(280px, .48fr) minmax(0, .9fr);
+      gap: 0;
+      overflow: hidden;
+      transform: rotate(-.25deg);
+    }
+
+    .assistant-aside {
+      padding: 24px;
+      background: var(--hd-blue);
+      color: #fff;
+      border-right: 3px solid var(--hd-ink);
+    }
+
+    .assistant-aside p {
+      color: rgba(255, 255, 255, .92);
+    }
+
+    .assistant-main {
+      padding: 20px;
+      min-width: 0;
+      background: #fffdfa;
+    }
+
+    label {
+      display: grid;
+      gap: 5px;
+      font-size: 14px;
+      color: var(--hd-pencil);
+      font-weight: 700;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 2px solid var(--hd-ink);
+      border-radius: 16px 12px 15px 13px / 13px 16px 12px 15px;
+      padding: 10px 12px;
+      color: var(--hd-ink);
+      background: #fff9df;
+    }
+
+    textarea {
+      min-height: 98px;
+      resize: vertical;
+    }
+
+    .chat-log {
+      height: 260px;
+      overflow: auto;
+      border: 2px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      background: #fbf6ee;
+      padding: 12px;
+      margin-bottom: 12px;
+    }
+
+    .message {
+      max-width: 88%;
+      padding: 10px 12px;
+      border: 2px solid var(--hd-ink);
+      border-radius: var(--radius-rough);
+      margin-bottom: 10px;
+      white-space: pre-wrap;
+      background: #fffdfa;
+    }
+
+    .message.user {
+      margin-left: auto;
+      color: #fff;
+      background: var(--hd-green);
+    }
+
+    .chat-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .status {
+      color: var(--hd-pencil);
+      font-size: 14px;
+    }
+
+    .footer {
+      position: relative;
+      z-index: 1;
+      border-top: 3px solid var(--hd-ink);
+      background: #fff9df;
+      padding: 28px 0;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 24px));
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-weight: 700;
+    }
+
+    @media (max-width: 940px) {
+      .hero-inner,
+      .section-head,
+      .content-row,
+      .content-row.flip,
+      .assistant {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-board {
+        min-height: auto;
+      }
+
+      .poster-stack,
+      .sticky-date {
+        position: relative;
+      }
+
+      .sticky-date {
+        margin-top: 18px;
+        right: auto;
+        bottom: auto;
+      }
+
+      .nav-wrap {
+        grid-template-columns: 1fr;
+        gap: 2px;
+        padding-top: 10px;
+      }
+
+      .grid,
+      .grid.two,
+      .risk-table {
+        grid-template-columns: 1fr;
+      }
+
+      .assistant-aside {
+        border-right: 0;
+        border-bottom: 3px solid var(--hd-ink);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        min-height: auto;
+        padding-top: 24px;
+      }
+
+      .hero-actions .btn-hand,
+      .hero-actions .btn-paper {
+        width: 100%;
+      }
+
+      .tab-list {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tab-button {
+        min-height: 54px;
+        padding: 8px;
+      }
+
+      .notice {
+        grid-template-columns: 1fr;
+      }
+
+      .main {
+        width: min(100% - 18px, 1180px);
+        padding-top: 24px;
+      }
+
+      .message {
+        max-width: 96%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳到主要內容</a>
+  <div class="page">
+    <header class="hero" id="top">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">TANA 愛滋病護理學會 v.2021</p>
+          <h1>活在愛裡的人<br><span class="scribble">都不孤單</span></h1>
+          <p class="hero-copy">這是一份把 HIV 篩檢衛教 PDF 重新整理成「手繪筆記」的互動式網頁。像翻開一本衛教速寫本：重要觀念可展開、圖片穿插在內容裡，也能用本地關鍵字摘要詢問教材內容。</p>
+          <div class="hero-actions">
+            <a class="btn-hand" href="AcrossHIV_VCT Education Material_TW_SE_2021.pdf" target="_blank" rel="noopener">開始閱讀</a>
+            <svg viewBox="0 0 80 30" class="hand-arrow" aria-hidden="true">
+              <path d="M5 15 Q 25 8 40 18 T 70 12" stroke="var(--hd-ink)" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+              <path d="M62 6 L 75 12 L 68 22" stroke="var(--hd-ink)" stroke-width="2.5" fill="none" stroke-linecap="round"></path>
+            </svg>
+            <a class="btn-paper" href="#ask">詢問 PDF 內容</a>
+          </div>
+        </div>
+        <div class="hero-board" aria-label="教材封面圖片">
+          <figure class="poster-stack">
+            <img src="hiv0105/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_01.jpg" alt="TANA 愛滋病護理學會衛教教材封面">
+          </figure>
+          <div class="sticky-date">
+            四個主題分頁<br>
+            預防愛滋 / 性病 / 自我保護 / 預防性投藥
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="topbar" aria-label="目錄導航">
+      <div class="nav-wrap">
+        <a class="brand" href="https://www.tananurse.org.tw/index.aspx?lang=cht" target="_blank" rel="noopener">TANA 愛滋病護理學會</a>
+        <div class="toc" id="toc">
+          <a href="#prevention-hiv">預防愛滋</a>
+          <a href="#prevention-sti">預防性病</a>
+          <a href="#self-protection">自我保護</a>
+          <a href="#prep-pep">預防性投藥</a>
+          <a href="#ask">本地問答</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="main" id="content">
+      <aside class="notice" aria-label="醫療提醒">
+        <div><strong>衛教用途提醒：</strong>本頁依據 PDF 教材內容整理，供教育展示與自我學習使用。若涉及暴露風險、篩檢時程、PrEP/PEP 用藥或身體症狀，請洽詢專業醫療人員。</div>
+        <div class="doodle-star">✦</div>
+      </aside>
+
+      <div class="tabs" aria-label="四個衛教分頁">
+        <div class="tab-list" role="tablist">
+          <button class="tab-button" role="tab" aria-selected="true" aria-controls="prevention-hiv" id="tab-hiv" data-tab="prevention-hiv">預防愛滋</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="prevention-sti" id="tab-sti" data-tab="prevention-sti">預防性病</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="self-protection" id="tab-self" data-tab="self-protection">自我保護</button>
+          <button class="tab-button" role="tab" aria-selected="false" aria-controls="prep-pep" id="tab-prep" data-tab="prep-pep">預防性投藥</button>
+        </div>
+
+        <section class="tab-panel active section-band" role="tabpanel" id="prevention-hiv" aria-labelledby="tab-hiv">
+          <div class="section-head">
+            <div>
+              <h2><span class="highlight">認識 HIV 傳染與篩檢</span></h2>
+              <p class="lead">HIV 主要透過性行為、血液與母子垂直傳染；日常共同生活、共用馬桶、游泳池與蚊蟲叮咬不會傳染 HIV。</p>
+            </div>
+            <div class="summary-panel">
+              <strong>本頁重點</strong>
+              <ul>
+                <li>三大傳染途徑與對應預防方式。</li>
+                <li>空窗期與定期篩檢的重要性。</li>
+                <li>HIV 與 AIDS 並不是同一件事。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div class="grid">
+                <article class="info-card note-yellow">
+                  <span class="tag">性行為傳染</span>
+                  <h3>全程正確使用保險套與水性潤滑劑</h3>
+                  <p>固定單一性伴侶、減少危險性行為，並在性病疑慮時盡速就醫與檢驗 HIV。</p>
+                </article>
+                <article class="info-card note-pink">
+                  <span class="tag">血液傳染</span>
+                  <h3>避免共用針具與接觸受污染血液</h3>
+                  <p>不要共用注射針頭、針筒、稀釋液，也避免輸入受 HIV 污染的血液或血液製劑。</p>
+                </article>
+                <article class="info-card note-green">
+                  <span class="tag">母子垂直傳染</span>
+                  <h3>懷孕期間及早接受醫療照護</h3>
+                  <p>可透過懷孕期預防性用藥、必要時剖腹產與避免哺餵母乳來降低寶寶感染風險。</p>
+                </article>
+              </div>
+            </div>
+            <figure class="visual-card">
+              <img src="hiv0105/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_02.jpg" alt="HIV 傳染與預防教材頁">
+              <figcaption>教材第 2 頁，搭配 HIV 傳染與預防概念。</figcaption>
+            </figure>
+          </div>
+
+          <div class="content-row flip">
+            <figure class="visual-card alt">
+              <img src="hiv0105/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_03.jpg" alt="HIV 空窗期與篩檢教材頁">
+              <figcaption>教材第 3 頁，搭配空窗期與篩檢提醒。</figcaption>
+            </figure>
+            <div>
+              <details>
+                <summary>什麼是 HIV 空窗期？</summary>
+                <div class="detail-body">
+                  <p>感染 HIV 後，身體需要一段時間才可能被檢驗出感染。已感染但暫時檢驗不出的期間稱為「空窗期」。如果篩檢結果為陰性，仍應確認是否可能處於空窗期。</p>
+                  <p>教材建議：一般可每年篩檢一次；若持續有感染風險行為，可每 3 至 6 個月篩檢一次。</p>
+                </div>
+              </details>
+              <details>
+                <summary>HIV 與 AIDS 的差異</summary>
+                <div class="detail-body">
+                  <p>HIV 是人類免疫缺乏病毒；AIDS 是後天免疫缺乏症候群。感染 HIV 不代表立刻成為 AIDS。若及早診斷並接受治療，可壓低病毒量並降低傳染風險。</p>
+                  <ol>
+                    <li>急性感染期：感染後約 2 至 4 週，可能有類似感冒症狀。</li>
+                    <li>潛伏期：可長達多年，可能沒有明顯症狀，但仍具有傳染力。</li>
+                    <li>AIDS 期：免疫系統受嚴重破壞，較易出現伺機性感染或相關疾病。</li>
+                  </ol>
+                </div>
+              </details>
+              <div class="callout">
+                <strong>不會傳染的情境：</strong>游泳池、共用馬桶或洗衣機、一般口水、眼淚、汗水接觸，以及蚊蟲叮咬，並非 HIV 傳染途徑。
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel section-band" role="tabpanel" id="prevention-sti" aria-labelledby="tab-sti">
+          <div class="section-head">
+            <div>
+              <h2><span class="highlight">安全性行為，安心享性福</span></h2>
+              <p class="lead">許多性傳染病透過性接觸、皮膚接觸與體液交換傳染。降低風險的核心，是理解風險、使用保護措施並定期篩檢。</p>
+            </div>
+            <div class="summary-panel">
+              <strong>ABC 三步驟</strong>
+              <ul>
+                <li>A：禁慾 Abstain。</li>
+                <li>B：固定單一性伴侶 Be faithful。</li>
+                <li>C：使用保險套 Condom use。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div class="risk-table" aria-label="性行為傳染風險整理">
+                <div class="risk"><b>可忽略風險</b><p>咬傷、揮灑體液、共用性道具等情境，仍應注意清潔與傷口照護。</p></div>
+                <div class="risk"><b>低風險</b><p>口交通常風險較低，但若有口腔傷口、出血或性病病灶，風險會上升。</p></div>
+                <div class="risk"><b>中風險</b><p>肛交進入方、陰道交等行為需全程使用保險套與水性潤滑液。</p></div>
+                <div class="risk"><b>高風險</b><p>肛交接受方、無保護且造成傷口或出血的性行為，感染風險較高。</p></div>
+              </div>
+            </div>
+            <figure class="visual-card">
+              <img src="hiv0610/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_06.jpg" alt="安全性行為教材頁">
+              <figcaption>教材第 6 頁，搭配性行為風險與保護概念。</figcaption>
+            </figure>
+          </div>
+
+          <div class="content-row flip">
+            <figure class="visual-card alt">
+              <img src="hiv0610/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_07.jpg" alt="ABC 安全性行為教材頁">
+              <figcaption>教材第 7 頁，搭配 ABC 安全性行為。</figcaption>
+            </figure>
+            <div>
+              <div class="grid">
+                <article class="info-card note-yellow">
+                  <span class="tag">A</span>
+                  <h3>禁慾</h3>
+                  <p>不與他人發生性行為，是預防性傳染病的有效方式之一。</p>
+                </article>
+                <article class="info-card note-green">
+                  <span class="tag">B</span>
+                  <h3>固定單一性伴侶</h3>
+                  <p>減少性伴侶數量、了解彼此篩檢狀態，可降低感染風險。</p>
+                </article>
+                <article class="info-card note-blue">
+                  <span class="tag">C</span>
+                  <h3>正確使用保險套</h3>
+                  <p>保險套需全程使用，並搭配水性潤滑劑。油性潤滑品可能增加保險套破裂風險。</p>
+                </article>
+              </div>
+              <details>
+                <summary>性病疑慮時應該怎麼做？</summary>
+                <div class="detail-body">
+                  <p>若出現分泌物異常、潰瘍、水泡、疼痛、發燒或曾有無保護性行為，建議盡速就醫與篩檢。性病可能增加 HIV 感染風險，因此教材也提醒性病患者應檢驗 HIV。</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="tab-panel section-band" role="tabpanel" id="self-protection" aria-labelledby="tab-self">
+          <div class="section-head">
+            <div>
+              <h2><span class="highlight">我的健康「性」福我決定</span></h2>
+              <p class="lead">面對親密關係、同儕壓力或用藥邀請時，最重要的是辨識自己的界線，並用冷靜、堅定的方式表達拒絕。</p>
+            </div>
+            <div class="summary-panel">
+              <strong>拒絕三技巧</strong>
+              <ul>
+                <li>表明立場：先說清楚自己的決定。</li>
+                <li>說明原因：可說明，也可保留隱私。</li>
+                <li>表達理解：理解對方不代表改變界線。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div class="grid">
+                <article class="info-card note-pink">
+                  <span class="tag">情境一</span>
+                  <h3>還沒準備好發生關係</h3>
+                  <p>可以明確說出「我現在不想」或「我還沒準備好」，不需要為了安撫對方而讓步。</p>
+                </article>
+                <article class="info-card note-yellow">
+                  <span class="tag">情境二</span>
+                  <h3>對方不願意戴套</h3>
+                  <p>安全保護不是可有可無的條件。若對方拒絕保護措施，你也可以拒絕發生性行為。</p>
+                </article>
+                <article class="info-card note-green">
+                  <span class="tag">情境三</span>
+                  <h3>朋友邀請使用藥物</h3>
+                  <p>共用針具或受藥物影響而做出高風險決定，都可能增加 HIV 與其他感染風險。</p>
+                </article>
+              </div>
+              <details>
+                <summary>如何練習「堅定但不攻擊」的拒絕？</summary>
+                <div class="detail-body">
+                  <p>先用一句話表明立場，再補充原因，最後回到界線。例如：「我理解你很想親近，但我現在不想發生性行為。若沒有保險套，我不會繼續。」若對方反覆說服，只要重複自己的拒絕，不需要不斷辯解。</p>
+                </div>
+              </details>
+            </div>
+            <figure class="visual-card">
+              <img src="hiv0610/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_09.jpg" alt="自我保護教材頁">
+              <figcaption>教材第 9 頁，搭配自我保護與拒絕技巧。</figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="tab-panel section-band" role="tabpanel" id="prep-pep" aria-labelledby="tab-prep">
+          <div class="section-head">
+            <div>
+              <h2><span class="highlight">PrEP 與 PEP</span></h2>
+              <p class="lead">除了保險套與降低風險行為，HIV 預防也包括暴露前與暴露後預防性投藥。是否適用、如何服用與追蹤，皆需由醫師評估。</p>
+            </div>
+            <div class="summary-panel">
+              <strong>快速分辨</strong>
+              <ul>
+                <li>PrEP：暴露 HIV 前使用。</li>
+                <li>PEP：疑似暴露 HIV 後使用，需盡快就醫。</li>
+                <li>兩者都不能預防其他性病。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="content-row">
+            <div>
+              <div class="grid two">
+                <article class="info-card note-green">
+                  <span class="tag">PrEP 事前藥</span>
+                  <h3>暴露 HIV 前的預防性投藥</h3>
+                  <ul>
+                    <li>適用於未感染 HIV 且經評估有較高感染風險的成年人。</li>
+                    <li>每日服藥一天一顆，或依醫師/個管師建議。</li>
+                    <li>正確且持續服用可降低 <span class="crayon-circle">90% 以上</span> HIV 感染風險。</li>
+                    <li>不能預防其他性病，仍需保險套與定期篩檢。</li>
+                  </ul>
+                </article>
+                <article class="info-card note-pink">
+                  <span class="tag">PEP 事後藥</span>
+                  <h3>疑似暴露 HIV 後的預防性投藥</h3>
+                  <ul>
+                    <li>適用於不安全性行為、性侵害、共用針具等疑似暴露情境。</li>
+                    <li>需於暴露後 <span class="crayon-circle">72 小時內</span> 盡快投藥。</li>
+                    <li>通常每天服用，需服用 28 天。</li>
+                    <li>屬預防性藥物，不是治療藥物。</li>
+                  </ul>
+                </article>
+              </div>
+            </div>
+            <figure class="visual-card">
+              <img src="hiv1116/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_11.jpg" alt="PrEP PEP 預防性投藥教材頁">
+              <figcaption>教材第 11 頁，搭配 PrEP 與 PEP 總覽。</figcaption>
+            </figure>
+          </div>
+
+          <div class="content-row flip">
+            <figure class="visual-card alt">
+              <img src="hiv1116/GSK_HIV_PE flipchart(II)_20210330(印刷)_Page_14.jpg" alt="PrEP PEP 常見問題教材頁">
+              <figcaption>教材第 14 頁，搭配預防性投藥常見問題。</figcaption>
+            </figure>
+            <div>
+              <details>
+                <summary>PrEP 是疫苗嗎？可以 100% 預防嗎？</summary>
+                <div class="detail-body">
+                  <p>PrEP 不是疫苗，不會讓身體產生對 HIV 的免疫力。它是透過藥物濃度降低感染風險，停藥後預防效果不會持續。教材指出，正確且按時服藥具有 90% 以上保護力，但不是 100%，仍需搭配保險套與水性潤滑液。</p>
+                </div>
+              </details>
+              <details>
+                <summary>超過 72 小時還能用 PEP 嗎？</summary>
+                <div class="detail-body">
+                  <p>教材提醒，若已暴露 HIV 超過 72 小時，仍請讓醫師評估是否有預防性投藥必要。任何疑似暴露都建議盡快就醫，不要等待症狀出現。</p>
+                </div>
+              </details>
+              <details>
+                <summary>使用 PrEP/PEP 有哪些限制？</summary>
+                <div class="detail-body">
+                  <p>可能出現腹瀉、噁心、疲倦、頭痛、發燒等副作用；長期使用 PrEP 可能需要注意腎功能與骨質相關風險。腎功能不佳者是否適合使用，必須由醫療人員評估。</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="assistant" id="ask" aria-label="本地問答">
+        <aside class="assistant-aside">
+          <h2>詢問 PDF 內容</h2>
+        </aside>
+        <div class="assistant-main">
+          <div class="chat-log" id="chatLog" aria-live="polite">
+            <div class="message bot">您好，我可以根據這份 HIV 衛教 PDF 的整理內容回答問題。可以問我「PrEP 和 PEP 差在哪？」或「空窗期是什麼？」</div>
+          </div>
+          <label>你的問題<textarea id="question" placeholder="請輸入想詢問 PDF 內容的問題"></textarea></label>
+          <div class="chat-actions">
+            <button class="btn-hand" id="sendQuestion" type="button">送出問題</button>
+            <span class="status" id="status">使用本地關鍵字摘要回覆。</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        <span>HIV 篩檢衛教手繪互動頁</span>
+        <span>教材：TANA 愛滋病護理學會 v.2021</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const pdfContext = `
+教材名稱：TANA 愛滋病護理學會 v.2021。主題為 HIV 篩檢衛教、愛滋預防、性病預防、自我保護與預防性投藥。
+
+HIV 傳染途徑與預防：
+1. 性行為傳染：安全性行為、固定單一性伴侶、正確全程使用保險套與水性潤滑劑；性病患者應盡速就醫並檢驗 HIV。
+2. 血液傳染：不要共用注射針頭、針筒、稀釋液；避免輸入受 HIV 污染的血液或血液製劑。
+3. 母子垂直傳染：懷孕期間接受預防性用藥，必要時選擇剖腹產，並避免哺餵母乳。
+
+HIV 不會透過游泳池、共用馬桶、洗衣機、一般日常共同生活、一般口水、眼淚、汗水或蚊蟲叮咬傳染。
+
+空窗期：人體感染 HIV 後，需要經過一段時間才能被檢驗出來。已感染但檢驗不出來的期間稱為空窗期。若不確定是否處於空窗期，建議每年篩檢一次；若持續有感染風險行為，每 3 至 6 個月篩檢一次。
+
+HIV/AIDS：HIV 是人類免疫缺乏病毒。AIDS 是後天免疫缺乏症候群。感染 HIV 不等於馬上成為 AIDS。HIV/AIDS 可分為急性感染期、潛伏期與 AIDS 期。AIDS 診斷可能與 CD4 淋巴球數少於 200 cells/mm3 或出現特定伺機性感染、神經系統病症或腫瘤有關。
+
+安全性行為與性病預防：許多性傳染病透過性接觸、皮膚與體液交換傳染，體液包括血液、精液、陰道分泌物。ABC 預防步驟為 A 禁慾 Abstain、B 固定單一性伴侶 Be faithful、C 使用保險套 Condom use。保險套必須正確且全程使用，並搭配水性潤滑劑，避免油性潤滑品造成保險套破裂。
+
+自我保護：面對發生關係、無保護性行為或用藥邀請等壓力時，應學會拒絕並勇敢說不。拒絕三技巧為表明立場、說明原因、表達理解。如果對方仍持續說服，只需重複表達拒絕意願，不需要反覆說明。
+
+預防性投藥：
+PrEP 事前藥：暴露 HIV 前使用，適用於未感染 HIV 且經醫師評估有高感染風險者。教材整理為每日服藥一天一顆，或依醫師/個管師建議。正確服用可降低 90% 以上 HIV 感染風險。PrEP 不是疫苗，不會產生抗體或免疫力，停藥後預防效果不會持續。PrEP 不能預防其他性病，需搭配保險套並定期追蹤，且可能需自費。
+PEP 事後藥：暴露 HIV 後使用，適用於不安全危險性行為、性侵害、共用針具或稀釋液等疑似暴露情境。需於暴露後 72 小時內盡快投藥，通常每天服用並持續 28 天，可降低至少 80% 以上 HIV 感染風險。PEP 是預防性藥物，不是治療藥物，需定期回診追蹤。
+
+PrEP/PEP 限制：可能有腹瀉、噁心、疲倦、頭痛、發燒等副作用；長期使用 PrEP 可能有腎損傷或骨質流失等風險，腎功能不佳者不宜自行使用，需由醫療人員評估。
+`;
+
+    const localAnswers = [
+      { keys: ["空窗", "篩檢", "陰性"], answer: "空窗期是感染 HIV 後，身體尚未能被檢驗方法偵測出感染的期間。教材提醒，如果不確定是否處於空窗期，建議每年篩檢一次；若持續有感染風險行為，可每 3 至 6 個月篩檢一次。" },
+      { keys: ["prep", "事前", "疫苗", "90"], answer: "PrEP 是暴露 HIV 前的預防性投藥，不是疫苗，也不會讓身體產生 HIV 抗體或永久免疫力。正確且按時服用可降低 90% 以上 HIV 感染風險，但不能 100% 預防，也不能預防其他性病。" },
+      { keys: ["pep", "事後", "72", "28"], answer: "PEP 是疑似暴露 HIV 後的預防性投藥，教材指出需於暴露後 72 小時內盡快投藥，通常每天服用並持續 28 天。若已超過 72 小時，仍建議盡快讓醫師評估。" },
+      { keys: ["傳染", "游泳", "馬桶", "蚊"], answer: "HIV 主要透過性行為、血液與母子垂直傳染。教材也整理：游泳池、共用馬桶或洗衣機、一般口水/眼淚/汗水接觸，以及蚊蟲叮咬不會傳染 HIV。" },
+      { keys: ["保險套", "潤滑", "性病", "abc"], answer: "教材的安全性行為 ABC 包括：A 禁慾、B 固定單一性伴侶、C 使用保險套。保險套需全程正確使用，並搭配水性潤滑劑；油性潤滑品可能讓保險套破裂。" },
+      { keys: ["拒絕", "保護", "壓力", "說不"], answer: "自我保護的拒絕三技巧是：表明立場、說明原因、表達理解。若對方持續說服，只需重複表達拒絕意願，不需要反覆辯解。" }
+    ];
+
+    const tabs = document.querySelectorAll(".tab-button");
+    const panels = document.querySelectorAll(".tab-panel");
+
+    function activateTab(id) {
+      tabs.forEach((tab) => tab.setAttribute("aria-selected", String(tab.dataset.tab === id)));
+      panels.forEach((panel) => panel.classList.toggle("active", panel.id === id));
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        activateTab(tab.dataset.tab);
+        history.replaceState(null, "", `#${tab.dataset.tab}`);
+      });
+    });
+
+    document.querySelectorAll(".toc a").forEach((link) => {
+      link.addEventListener("click", () => {
+        const id = link.getAttribute("href").replace("#", "");
+        if (document.getElementById(id)?.classList.contains("tab-panel")) activateTab(id);
+      });
+    });
+
+    if (location.hash) {
+      const targetId = location.hash.replace("#", "");
+      if (document.getElementById(targetId)?.classList.contains("tab-panel")) activateTab(targetId);
+    }
+
+    const statusEl = document.getElementById("status");
+    const questionEl = document.getElementById("question");
+    const chatLog = document.getElementById("chatLog");
+
+    function addMessage(text, type) {
+      const div = document.createElement("div");
+      div.className = `message ${type}`;
+      div.textContent = text;
+      chatLog.appendChild(div);
+      chatLog.scrollTop = chatLog.scrollHeight;
+    }
+
+    function localReply(question) {
+      const lower = question.toLowerCase();
+      const found = localAnswers.find((item) => item.keys.some((key) => lower.includes(key.toLowerCase())));
+      if (found) return found.answer;
+      return "本地關鍵字摘要回覆：這份教材主要涵蓋 HIV 傳染途徑、空窗期與篩檢、安全性行為 ABC、自我保護、PrEP 事前藥與 PEP 事後藥。若你的問題涉及個人暴露風險或用藥，請盡快洽詢醫療人員。";
+    }
+
+    document.getElementById("sendQuestion").addEventListener("click", async () => {
+      const question = questionEl.value.trim();
+      if (!question) return;
+      addMessage(question, "user");
+      questionEl.value = "";
+      addMessage(localReply(question), "bot");
+      statusEl.textContent = "已使用本地關鍵字摘要回覆。";
+    });
+
+    questionEl.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) document.getElementById("sendQuestion").click();
+    });
+  </script>
+  <script type="module" src="firebase-client.js"></script>
+</body>
+</html>
