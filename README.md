@@ -2,6 +2,16 @@
 
 This folder is the deploy-ready static website package.
 
+## Live Site
+
+- Production: <https://hiv-education-interactive.pages.dev>
+- Latest deployment preview: <https://633f79c4.hiv-education-interactive.pages.dev>
+- GitHub repository: <https://github.com/profmonicako-cmyk/hiv-education-interactive>
+
+## Project Record
+
+See [`PROJECT_LOG.md`](PROJECT_LOG.md) for the full build, optimization, GitHub, Firebase, and Cloudflare Pages deployment workflow.
+
 ## Files Required for Deployment
 
 - `index.html`
