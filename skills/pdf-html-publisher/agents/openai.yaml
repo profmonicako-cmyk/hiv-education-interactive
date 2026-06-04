@@ -1,0 +1,3 @@
+display_name: PDF HTML Publisher
+short_description: Publish PDF material as HTML sites.
+default_prompt: Use this skill to convert PDF education material into an optimized interactive HTML site, package it for static hosting, and deploy it.
